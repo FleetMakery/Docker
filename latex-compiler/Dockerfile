@@ -6,8 +6,9 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
-RUN apt-get install -y texlive-latex-recommended
-RUN apt-get install -y texlive-latex-extra
+RUN \
+    apt-get install -y texlive-latex-recommended && \
+    apt-get install -y texlive-latex-extra
 
 ADD latexcat /usr/local/bin/latexcat
 RUN chmod a+x /usr/local/bin/latexcat
