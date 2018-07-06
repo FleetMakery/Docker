@@ -1,14 +1,10 @@
-FROM ubuntu
+FROM ivanpondal/alpine-latex
 
-MAINTAINER Bruno Bronosky <richard@bronosky.com>
+MAINTAINER Michael Noel Jones <edu4botics@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
-
-RUN \
-    apt-get install -y texlive-latex-recommended && \
-    apt-get install -y texlive-latex-extra
+RUN apk update && apk add --update bash
 
 ADD latexcat /usr/local/bin/latexcat
 RUN chmod a+x /usr/local/bin/latexcat

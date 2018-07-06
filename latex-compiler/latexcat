@@ -14,7 +14,7 @@ cd output
 cat /dev/stdin > ../sourcefile
 
 # determine the type of the source file
-if file -b ../sourcefile | grep -q "tar archive"; then
+if stat -c %F ../sourcefile | grep -q "tar archive"; then
     tarfile=1
     tar xf ../sourcefile
     # find the latex file
